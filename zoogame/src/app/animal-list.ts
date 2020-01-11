@@ -1,5 +1,4 @@
 import { Animal } from './models/animal';
-import { triggerAsyncId } from 'async_hooks';
 
 export const animals: Animal[] = [
     {
