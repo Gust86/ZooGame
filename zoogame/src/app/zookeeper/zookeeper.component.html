@@ -9,3 +9,22 @@
     [completionTime]="8"
     [image]="'./assets/toilet.jpg'"
 ></app-chore> -->
+<h1>Animals</h1>
+<div *ngFor="let animal of animalList">
+    <app-animal 
+        [name]="animal.name"
+        [stamina]="animal.stamina"
+        [image]="animal.image"
+        [sound]="animal.sound"
+        [staminaDecay]="animal.staminaDecay"
+    ></app-animal>
+</div>
+<h1>Chores</h1>
+<div *ngFor="let chore of choreList">
+    <app-chore
+        [name]="chore.name"
+        [image]="chore.image"
+        [completionTime]="chore.completionTime"
+        [complete]="chore.complete"
+    ></app-chore>
+</div>

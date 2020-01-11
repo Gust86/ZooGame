@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Animal } from '../models/animal';
 import { Chore } from '../models/chore';
+import { animals } from '../animal-list';
+import { chores } from '../chore-list';
 
 @Component({
   selector: 'app-zookeeper',
@@ -8,8 +10,9 @@ import { Chore } from '../models/chore';
   styleUrls: ['./zookeeper.component.css']
 })
 export class ZookeeperComponent implements OnInit {
-  animalList: Animal[];
-  choreList: Chore[];
+  animalList: Animal[] = animals;
+  choreList: Chore[] = chores;
+  
 
   constructor() { }
 
