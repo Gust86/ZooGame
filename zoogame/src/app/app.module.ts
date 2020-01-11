@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ZookeeperComponent } from './zookeeper/zookeeper.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ZookeeperComponent
   ],
   imports: [
     BrowserModule,
