@@ -12,6 +12,7 @@ import { chores } from '../chore-list';
 export class ZookeeperComponent implements OnInit {
   animalList: Animal[] = animals;
   choreList: Chore[] = chores;
+  resourses: number;
   
 
   constructor() { }
