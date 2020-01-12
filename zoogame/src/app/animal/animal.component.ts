@@ -24,9 +24,13 @@ export class AnimalComponent implements OnInit {
   }
 
   staminaDrop(): void {
-    setInterval(() => {
-      this.stamina = this.stamina - 10;
-    }, this.staminaDecay ) 
+    let intervalId;
+    intervalId = setInterval(() => {
+      if(this.stamina > 0) {
+        this.stamina = this.stamina - 10;
+      } else{
+        clearInterval(intervalId);
+      }
+    }, this.staminaDecay) 
   }
-
 }
