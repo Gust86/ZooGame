@@ -1,7 +1,9 @@
 <h3>
     {{name}} ({{stamina}})
 </h3>
+<!-- Το div θα εμφανιστεί μόνο όταν το stamina property της class animalcomponent γίνει 0. -->
 <div *ngIf="stamina==0">
     Animal fainted
 </div>
+<!-- δηλώνουμε το click event μέσα στο img element και του δίνουμε την method onFeed() για handler -->
 <img (click)="onFeed()" src={{image}} height="200" width="200">

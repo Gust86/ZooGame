@@ -1,5 +1,7 @@
 import { Animal } from './models/animal';
 
+// Δηλώνουμε μια const variable τύπου Animal[] (δηλαδή μια λίστα με objects τύπου Animal)
+// Δίνουμε τιμές στο κάθε object μέσα στη λίστα για τις ανάγκες του παιχνιδιού ίσα ίσα για να έχουμε κάτι να χρησιμοποιήσουμε/εμφανίσουμε
 export const animals: Animal[] = [
     {
         name: 'tiger',
