@@ -16,6 +16,17 @@ export class AnimalComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.staminaDrop();
+  }
+
+  onFeed() {
+    this.stamina = this.stamina + 1;
+  }
+
+  staminaDrop(): void {
+    setInterval(() => {
+      this.stamina = this.stamina - 10;
+    }, this.staminaDecay ) 
   }
 
 }
