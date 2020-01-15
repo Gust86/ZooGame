@@ -1,5 +1,4 @@
 
-<h1>Animals</h1>
 <!-- Δημιουργούμε έναν μηχανισμό επανάληψης (for loop) χρησιμοποιώντας το structural directive της angular *ngFor
      Διαβάζεται ως εξής
      "Για κάθε animal μέσα στη λίστα με τα animals (animalList) δημιούργησε ένα καινούριο app-animal component"
@@ -13,22 +12,29 @@
      για να λειτουργήσει... δηλαδή λέει στο zookeeper ποιό ζώο πρέπει να αφαιρέσει από τη λίστα.
      example $event = 'tiger'
 -->
-<div *ngFor="let animal of animalList">
-    <app-animal 
-        [name]="animal.name"
-        [stamina]="animal.stamina"
-        [image]="animal.image"
-        [sound]="animal.sound"
-        [staminaDecay]="animal.staminaDecay"
-        (feint)="onFeint($event)"
-    ></app-animal>
+<h1>Animals</h1>
+<div class="d-flex">
+    <div *ngFor="let animal of animalList">
+        <app-animal
+            class="m-3"
+            [name]="animal.name"
+            [stamina]="animal.stamina"
+            [image]="animal.image"
+            [sound]="animal.sound"
+            [staminaDecay]="animal.staminaDecay"
+            (feint)="onFeint($event)"
+        ></app-animal>
+    </div>
 </div>
 <h1>Chores</h1>
-<div *ngFor="let chore of choreList">
-    <app-chore
-        [name]="chore.name"
-        [image]="chore.image"
-        [completionTime]="chore.completionTime"
-        [complete]="chore.complete"
-    ></app-chore>
+<div class="d-flex">
+    <div *ngFor="let chore of choreList">
+        <app-chore
+            class="m-3"
+            [name]="chore.name"
+            [image]="chore.image"
+            [completionTime]="chore.completionTime"
+            [complete]="chore.complete"
+        ></app-chore>
+    </div>
 </div>

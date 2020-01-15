@@ -1,6 +1,8 @@
-<h3>
-    {{name}} ({{stamina}})
-</h3>
+<div class="d-flex">
+    <h3>{{name}}</h3>
+    <h3 class="ml-2" [ngClass]="{dangerstamina: stamina<=40}">({{stamina}})</h3>
+</div>
+
 <!-- Το div θα εμφανιστεί μόνο όταν το stamina property της class animalcomponent γίνει 0. -->
 <div *ngIf="stamina==0">
     Animal fainted
