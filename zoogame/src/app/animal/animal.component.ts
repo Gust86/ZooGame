@@ -52,7 +52,7 @@ export class AnimalComponent implements OnInit {
     intervalId = setInterval(() => {
       if(this.stamina > 0) {
         this.stamina = this.stamina - 10;
-        if(this.stamina == 0) {
+        if(this.stamina <= 0) {
           clearInterval(intervalId);
           this.feint.emit(this.name);
           console.log('animal feinted');
