@@ -1,11 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Animal } from '../models/animal';
+import { Fly } from '../models/fly';
 
 @Component({
   selector: 'app-animal',
   templateUrl: './animal.component.html',
   styleUrls: ['./animal.component.css']
 })
-export class AnimalComponent implements OnInit {
+export class AnimalComponent implements OnInit, Animal, Fly {
   // Δηλώνουμε τα properties της class(component) Animal
   // Όλα τα properties της classes τα δηλώνουμε ως Input διότι έχουμε αποφασίσει
   // πως το AnimalComponent είναι CHILD component του Zookeeper οπότε θα παίρνει τιμές από τον parent(zookeeper)
@@ -15,6 +17,8 @@ export class AnimalComponent implements OnInit {
   @Input() image: string;
   @Input() stamina: number;
   @Input() staminaDecay: number;
+  @Input() blockFeed: boolean = false;
+
   // Δηλώνουμε το event feint και του δίνουμε αμέσως μια τιμή.
   // Η τιμή είναι ένα καινούριο object τύπου EventEmitter. Δημιουργείται το object καλώντας τον constructor
   // της EventEmitter class με το keyword "new"
@@ -22,6 +26,7 @@ export class AnimalComponent implements OnInit {
   // πληροφορία αν θέλει να την μεταφέρει σαν μήνυμα στον parent (zookeeper) -- στην περίπτωσή του feint,
   // η έξτρα πληροφορία θα είναι το όνομα του ζώου που λιποθύμησε.
   @Output() feint = new EventEmitter();
+
 
 
   constructor() { }
@@ -37,7 +42,13 @@ export class AnimalComponent implements OnInit {
   // Χρησιμοποιούμε το this στο this.stamina διότι η μέθοδος πρέπει να γνωρίζει σε ποια μεταβλητή αναφερόμαστε
   // και από τη στιγμή που το stamina είναι δηλωμένο ως class-property τότε το this. αναφέρεται στην ίδια την animal class.
   onFeed() {
-    this.stamina = this.stamina + 1;
+    if(!this.blockFeed) {        //if(this.blockFeed == false)
+      this.stamina = this.stamina + 5;
+    }
+  }
+
+  fly() {
+    console.log('im flying');
   }
 
 
@@ -52,6 +63,7 @@ export class AnimalComponent implements OnInit {
     intervalId = setInterval(() => {
       if(this.stamina > 0) {
         this.stamina = this.stamina - 10;
+        
         if(this.stamina <= 0) {
           clearInterval(intervalId);
           this.feint.emit(this.name);
