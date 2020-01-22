@@ -22,6 +22,7 @@
             [image]="animal.image"
             [sound]="animal.sound"
             [staminaDecay]="animal.staminaDecay"
+            [blockFeed]="blockFeeding"
             (feint)="onFeint($event)"
         ></app-animal>
     </div>
@@ -36,6 +37,7 @@
             [completionTime]="chore.completionTime"
             [complete]="chore.complete"
             (choreComplete)="onChoreComplete($event)"
+            (choreStart)="onChoreStarted()"
         ></app-chore>
     </div>
 </div>

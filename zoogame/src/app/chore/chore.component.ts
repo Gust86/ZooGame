@@ -12,6 +12,7 @@ export class ChoreComponent implements OnInit {
   @Input() completionTime: number;
   @Input() complete: false;
   @Output() choreComplete = new EventEmitter();
+  @Output() choreStart = new EventEmitter();
 
   constructor() { }
 
@@ -19,6 +20,7 @@ export class ChoreComponent implements OnInit {
   }
 
   onChoreClicked() {
+    this.choreStart.emit();
     let intervalId;
     intervalId = setInterval(() => {
       if(this.completionTime > 0) {

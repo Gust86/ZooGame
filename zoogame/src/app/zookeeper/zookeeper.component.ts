@@ -23,6 +23,7 @@ export class ZookeeperComponent implements OnInit, Zookeeper {
   animalList: Animal[] = animals;
   choreList: Chore[] = chores;
   resources: number;
+  blockFeeding: boolean = false;
  
   
   // O constructor είναι η μέθοδος που δημιουργείται σε κάθε component
@@ -48,8 +49,12 @@ export class ZookeeperComponent implements OnInit, Zookeeper {
   }
   onChoreComplete(name: string) {
     this.choreList = this.choreList.filter(x => x.name !== name);
+    this.blockFeeding = false;
     console.log(this.choreList);
     console.log(`complete ${name} chore`);
+  }
+  onChoreStarted() {
+    this.blockFeeding = true;
   }
 
 }
