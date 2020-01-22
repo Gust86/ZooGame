@@ -1,8 +1,8 @@
 <h3>
     {{name}}
 </h3>
-<h6 class="text-center">({{completionTime}})</h6>
-<img class="p-2 border border-3 border-dark rounded-circle rounded-lg" src={{image}} height="200" width="200">
+<h6 class="text-center">({{completionTime/1000}}) sec</h6>
+<img (click)="onChoreClicked()" class="p-2 border border-3 border-dark rounded-circle rounded-lg" src={{image}} height="200" width="200">
 
 
 

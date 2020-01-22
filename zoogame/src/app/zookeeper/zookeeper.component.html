@@ -35,6 +35,7 @@
             [image]="chore.image"
             [completionTime]="chore.completionTime"
             [complete]="chore.complete"
+            (choreComplete)="onChoreComplete($event)"
         ></app-chore>
     </div>
 </div>

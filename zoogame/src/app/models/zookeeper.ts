@@ -5,4 +5,6 @@ export interface Zookeeper {
     animalList: Animal[];
     choreList: Chore[];
     resources: number;
+
+    onFeint(name: string);
 }

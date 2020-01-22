@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-chore',
@@ -10,10 +11,25 @@ export class ChoreComponent implements OnInit {
   @Input() image: string;
   @Input() completionTime: number;
   @Input() complete: false;
+  @Output() choreComplete = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onChoreClicked() {
+    let intervalId;
+    intervalId = setInterval(() => {
+      if(this.completionTime > 0) {
+        this.completionTime = this.completionTime - 1000;
+        if(this.completionTime <= 0) {
+          clearInterval(intervalId);
+          this.choreComplete.emit(this.name);
+          console.log('start completing the chore');
+        }
+      }
+    },1000)
   }
 
 }
