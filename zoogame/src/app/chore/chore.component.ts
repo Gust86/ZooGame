@@ -14,6 +14,7 @@ export class ChoreComponent implements OnInit, Chore {
   @Input() complete: false;
   @Output() choreComplete = new EventEmitter();
   @Output() choreStart = new EventEmitter();
+  choreCountdownStarted: boolean = false;
 
   constructor() { }
 
@@ -22,17 +23,21 @@ export class ChoreComponent implements OnInit, Chore {
 
   onChoreClicked() {
     this.choreStart.emit();
-    let intervalId;
-    intervalId = setInterval(() => {
-      if(this.completionTime > 0) {
-        this.completionTime = this.completionTime - 1000;
-        if(this.completionTime <= 0) {
-          clearInterval(intervalId);
-          this.choreComplete.emit(this.name);
-          console.log('start completing the chore');
+    
+    if(!this.choreCountdownStarted) {
+      let intervalId;
+      intervalId = setInterval(() => {
+        if(this.completionTime > 0) {
+          this.completionTime = this.completionTime - 1000;
+          if(this.completionTime <= 0) {
+            clearInterval(intervalId);
+            this.choreComplete.emit(this.name);
+            console.log('start completing the chore');
+          }
         }
-      }
-    },1000)
+      },1000)
+      this.choreCountdownStarted = true;
+    }
   }
 
 }
