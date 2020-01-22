@@ -1,13 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Animal } from '../models/animal';
-import { Fly } from '../models/fly';
 
 @Component({
   selector: 'app-animal',
   templateUrl: './animal.component.html',
   styleUrls: ['./animal.component.css']
 })
-export class AnimalComponent implements OnInit, Animal, Fly {
+export class AnimalComponent implements OnInit, Animal  {
   // Δηλώνουμε τα properties της class(component) Animal
   // Όλα τα properties της classes τα δηλώνουμε ως Input διότι έχουμε αποφασίσει
   // πως το AnimalComponent είναι CHILD component του Zookeeper οπότε θα παίρνει τιμές από τον parent(zookeeper)
@@ -47,9 +46,6 @@ export class AnimalComponent implements OnInit, Animal, Fly {
     }
   }
 
-  fly() {
-    console.log('im flying');
-  }
 
 
   // Μεθοδος που θα ξεκινήσει να τρέχει στην onInit

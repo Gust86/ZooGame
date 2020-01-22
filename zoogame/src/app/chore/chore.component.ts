@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Chore } from '../models/chore';
 
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './chore.component.html',
   styleUrls: ['./chore.component.css']
 })
-export class ChoreComponent implements OnInit {
+export class ChoreComponent implements OnInit, Chore {
   @Input() name: string;
   @Input() image: string;
   @Input() completionTime: number;
